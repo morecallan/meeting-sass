@@ -1,5 +1,6 @@
 .container-height {
- min-height: 100vh;
+ min-height: 90vh;
+ margin-top: 5vh;
 }
 
 .w100 {
@@ -14,4 +15,9 @@
 .button-image {
     width: 80%;
     margin: 10%;
+}
+
+img {
+    max-height: 50vh;
+    max-width: 100%;
 }
