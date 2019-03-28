@@ -1,0 +1,17 @@
+.container-height {
+ min-height: 100vh;
+}
+
+.w100 {
+    min-width: 100%;
+}
+
+.dynamic-height {
+    min-width: 50%;
+    margin: auto 25%;
+}
+
+.button-image {
+    width: 80%;
+    margin: 10%;
+}
