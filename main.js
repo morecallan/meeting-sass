@@ -52,7 +52,7 @@ const showHomeSceen = () => {
 }
 
 $('#go-manual').click(showManualScreen);
-$('#go-auto').click(showManualScreen);
+$('#go-auto').click(showAutoScreen);
 $('#go-home').click(showHomeSceen);
 
 const pictureShower = () => {
@@ -97,6 +97,11 @@ const getRandomImage = () => {
     const ran = getRandomInt(0, window.images.length - 1);
     return window.images[ran];
 }
+
+/////////////////////////////////////////////////              AUTO POSTER           /////////////////////////////////////////////////
+$('#submit').on('click', () => {
+    $.post('https://meeting-sass.herokuapp.com/messager', $('#phone').val());
+})
 
 
 $(document).ready(() => {
