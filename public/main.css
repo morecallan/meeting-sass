@@ -1,0 +1,59 @@
+.container-height {
+ min-height: 90vh;
+ margin-top: 5vh;
+}
+
+.w100 {
+    min-width: 100%;
+}
+
+.dynamic-height {
+    min-width: 50%;
+    margin: auto 25%;
+}
+
+.button-image {
+    width: 80%;
+    margin: 10%;
+}
+
+#photo-here img {
+    max-height: 50vh;
+    max-width: 100%;
+}
+
+.input-field .prefix.active {
+    color: #b3e5fc !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #b3e5fc !important;
+   }
+
+   /* label focus color */
+.input-field input[type=tel]:focus.validate + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #b3e5fc !important;
+   }
+
+   .input-field input[type=text]:focus.validate + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #b3e5fc !important;
+   }
+
+/* label underline focus color */
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #b3e5fc !important;
+    box-shadow: 0 1px 0 0 #b3e5fc !important
+}
+
+/* label underline focus color */
+.input-field input[type=tel]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #b3e5fc !important;
+    box-shadow: 0 1px 0 0 #b3e5fc !important
+}
+
+.top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}

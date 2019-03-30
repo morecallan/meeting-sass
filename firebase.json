@@ -1,0 +1,22 @@
+{
+  "apiKey": "AIzaSyAfAtVbj4P_XZQJ05ChdYbpAVcxGgPORXg",
+  "authDomain": "meeting-sass.firebaseapp.com",
+  "databaseURL": "https://meeting-sass.firebaseio.com",
+  "projectId": "meeting-sass",
+  "storageBucket": "meeting-sass.appspot.com",
+  "messagingSenderId": "229330355720",
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -36,6 +36,17 @@ const verticallyAlign = () => {
     });
 }
 
+const centerAlign = () => {
+    const contentContainers = $('#photo-here img');
+    $.each(contentContainers, (i, val) => {
+        const width = $(val).width();
+        const containerWidth = getComputedStyle($('#photo-here').get(0), null).getPropertyValue("width").split('px')[0];
+        const containerPadding = getComputedStyle($('#photo-here').get(0), null).getPropertyValue("padding").split('px')[0];
+        const leftMarg = (containerWidth  - (containerPadding * 2) - width) / 2;
+        $(val).css('margin-left', `${leftMarg}px`);
+    });
+}
+
 const showManualScreen = () => {
     $('.screen').hide();
     $('#manual-screen').show();
@@ -54,6 +65,7 @@ const showHomeSceen = () => {
 $('#go-manual').click(showManualScreen);
 $('#go-auto').click(showAutoScreen);
 $('#go-home').click(showHomeSceen);
+$('.back-button').click(showHomeSceen);
 
 const pictureShower = () => {
     const htmlContents = `<img src=${getRandomImage()}>`
@@ -66,6 +78,7 @@ const pictureShower = () => {
             $('#photo-subscreen').fadeIn('fast');
         })
         verticallyAlign();
+        centerAlign();
         setTimeout(() => {
             $('#photo-subscreen').fadeOut('fast', ()=> {
                 $('#go-picture').fadeIn('fast');
@@ -99,16 +112,41 @@ const getRandomImage = () => {
 }
 
 /////////////////////////////////////////////////              AUTO POSTER           /////////////////////////////////////////////////
-$('#submit').on('click', () => {
-    $.post('https://meeting-sass.herokuapp.com/messager', $('#phone').val());
+$('#meeting-info').on('submit', (e) => {
+    e.preventDefault();
+
+    const form = {
+        meetingLength: parseInt($('#meeting-length').val()),
+        meetingTime: $('#meeting-time').val(),
+        phone: `+1${$('#phone').val().replace('.', '').replace('-', '')}`
+    }
+
+    if (form.phone && form.meetingLength && form.meetingTime) {
+        // https://meeting-sass.herokuapp.com/
+        $.ajax({
+            type: "POST",
+            url: 'https://meeting-sass.herokuapp.com/messager',
+            data: form,
+            dataType: "json"
+        }).done((response) => {
+            $('#display-text').text('Watch for alerts on your phone.');
+            setTimeout(() => {
+                showHomeSceen();
+            }, 10000)
+        }).fail(() => {$('#display-text').text('You did something wrong.');})
+    } else {
+        $('#display-text').text('You did something wrong.');
+    }
+    
 })
 
 
 $(document).ready(() => {
-    $.get('./firebase.json').then((config) => {
+    $.get('./apiKeys.json').then((config) => {
         firebase.initializeApp(config);
         initializeImageStorage();
         calculateDynamics();
         showHomeSceen();
     })
+    $('.timepicker').timepicker();
 });

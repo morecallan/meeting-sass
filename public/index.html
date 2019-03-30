@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <!-- MAIN MENU SCREEN -->
+    <div class="container screen" id="home-screen">
+        <div class="card-panel grey darken-2 container-height">
+            <div class="contents">
+                <div class="row">
+                    <div class="col s10 offset-s1 l6 offset-l3">
+                        <div class="waves-effect waves-light light-blue lighten-4 grey-text text-darken-4 btn-large w100"
+                            id="go-manual"><i class="material-icons right">play_arrow</i>Manual Mode</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s10 offset-s1 l6 offset-l3">
+                        <div class="waves-effect waves-light  light-blue lighten-4 grey-text text-darken-4 btn-large w100"
+                            id="go-auto"><i class="material-icons right">schedule</i>Auto Mode</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MANUAL SCREEN -->
+    <div class="container screen" id="manual-screen">
+        <div class="card-panel grey darken-2 container-height">
+            <div class="btn-floating btn-large waves-effect waves-light deep-purple lighten-3 white-text top-left back-button"><i class="material-icons">arrow_back</i></div>
+            <div class="contents">
+                <div class="row" id="button-subscreen">
+                    <div class="col s10 offset-s1 l6 offset-l3">
+                        <div class="btn-floating btn-large waves-effect waves-light deep-orange darken-2 center-align dynamic-height"
+                            id="go-picture"><img src="angry.png" class="button-image"></div>
+                    </div>
+                </div>
+                <div class="row" id="photo-subscreen">
+                    <div class="col s10 offset-s1 l6 offset-l3">
+                        <div id="photo-here"><img id="img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTO SCREEN -->
+    <div class="container screen" id="auto-screen">
+        <div class="card-panel grey darken-2 container-height">
+            <div class="btn-floating btn-large waves-effect waves-light deep-purple lighten-3 white-text top-left back-button"><i class="material-icons">arrow_back</i></div>
+            <div class="contents">
+                <div class="row">
+                    <h6 id="display-text red-text text-lighten-2 center-align"></h6>
+                </div>
+                <div class="row">
+                    <form id="meeting-info">
+                        <div class="row">
+                            <div class="col s10 offset-s1">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">phone</i>
+                                        <input class="validate" type="tel" id="phone" name="phone" pattern="[0-9]{3}[-.]?[0-9]{3}[-.]?[0-9]{4}" required>
+                                        <label for="phone">Phone</label>
+                                        <span class="helper-text" data-success="Nailed it." data-error="Must be valid phone format.">555-555-5555</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                     <div class="input-field col s12 l6">
+                                        <i class="material-icons prefix">access_time</i>
+                                        <input type="text" class="timepicker validate" id="meeting-time" pattern="((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))" required>
+                                        <label for="meeting-time">Meeting Time</label>
+                                        <span class="helper-text" data-success="Nailed it." data-error="Must be time format: HH:MM AM/PM."></span>
+                                    </div>
+                                    <div class="input-field col s12 l6">
+                                        <i class="material-icons prefix">pregnant_woman</i>
+                                        <input type="text" id="meeting-length" class="validate" pattern="([1-9]|[1-8][0-9]|9[0-9]|1[0-7][0-9]|180)" required>
+                                        <label for="meeting-length">Meeting Duration</label>
+                                        <span class="helper-text" data-success="Nailed it." data-error="Enter a number between 1 and 180.">1 - 180 minutes</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s10 offset-s1 l6 offset-l3">
+                                        <button class="waves-effect waves-light light-blue lighten-4 grey-text text-darken-4 btn-large w100" id="submit" type="submit"><i class="material-icons right">send</i>Submit</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
